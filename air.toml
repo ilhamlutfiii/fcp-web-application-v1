@@ -1,0 +1,20 @@
+root = "."
+tmp_dir = "tmp"
+build_dir = "build"
+
+[build]
+  bin = "main"
+
+  [[build.targets]]
+    path = "./main.go"
+    args = []
+
+[build.exec]
+  args = ["run", "."]
+
+[build.watch]
+  paths = [
+    "**/*.go",
+    "**/*.html",
+    "**/*.css",
+  ]

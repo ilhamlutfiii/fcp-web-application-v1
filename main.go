@@ -12,8 +12,6 @@ import (
 	"embed"
 	"fmt"
 	"net/http"
-	"os"
-	"strconv"
 	"sync"
 	"time"
 
@@ -62,17 +60,12 @@ func main() {
 			)
 		}))
 		router.Use(gin.Recovery())
-
-		dbPort, err := strconv.Atoi(os.Getenv("PGPORT"))
-		if err != nil {
-			panic(err)
-		}
 		dbCredential := model.Credential{
-			Host:         os.Getenv("PGHOST"),
-			Username:     os.Getenv("PGUSER"),
-			Password:     os.Getenv("PGPASSWORD"),
-			DatabaseName: os.Getenv("PGDATABASE"),
-			Port:         dbPort,
+			Host:         "localhost",
+			Username:     "postgres",
+			Password:     "nggeng21",
+			DatabaseName: "fcpweb",
+			Port:         5432,
 			Schema:       "public",
 		}
 
